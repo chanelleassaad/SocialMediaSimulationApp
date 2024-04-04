@@ -10,10 +10,9 @@
 		00E356F31AD99517003FC87E /* Assignment6Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* Assignment6Tests.m */; };
 		0C80B921A6F3F58F76C31292 /* libPods-Assignment6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-Assignment6.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
-		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-Assignment6-Assignment6Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-Assignment6-Assignment6Tests.a */; };
-		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		DC8EA0612BBF331600BD841C /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DCFC966F2BBF2B4B003FDD1F /* Ionicons.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +42,7 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-Assignment6.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Assignment6.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Assignment6/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-Assignment6-Assignment6Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Assignment6-Assignment6Tests.release.xcconfig"; path = "Target Support Files/Pods-Assignment6-Assignment6Tests/Pods-Assignment6-Assignment6Tests.release.xcconfig"; sourceTree = "<group>"; };
+		DCFC966F2BBF2B4B003FDD1F /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -86,6 +86,7 @@
 		13B07FAE1A68108700A75B9A /* Assignment6 */ = {
 			isa = PBXGroup;
 			children = (
+				DCFC966E2BBF2A51003FDD1F /* Fonts */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -147,6 +148,15 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		DCFC966E2BBF2A51003FDD1F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DCFC966F2BBF2B4B003FDD1F /* Ionicons.ttf */,
+			);
+			name = Fonts;
+			path = /Users/chanelleassaad/VsCode/Assignment6/ios;
+			sourceTree = "<absolute>";
 		};
 /* End PBXGroup section */
 
@@ -241,8 +251,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
-				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				DC8EA0612BBF331600BD841C /* Ionicons.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
