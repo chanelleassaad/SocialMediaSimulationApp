@@ -1,21 +1,20 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {RouteProp, ParamListBase} from '@react-navigation/native';
 import React from 'react';
-import FeedScreen from '../screens/FeedScreen';
-import {RouteProp} from '@react-navigation/native';
-import {ParamListBase} from '@react-navigation/routers';
 import TabBarIcon from '../components/atoms/TabBarIcon';
+import FeedScreen from '../screens/FeedScreen';
 import ProfileNavigator from './ProfileNavigator';
 
 const Tab = createBottomTabNavigator();
 
-type MainNavigatorRouteProp = RouteProp<ParamListBase, string>;
+type AuthNavigatorRouteProp = RouteProp<ParamListBase, string>;
 
 const tabBar =
-  ({route}: {route: MainNavigatorRouteProp}) =>
+  ({route}: {route: AuthNavigatorRouteProp}) =>
   ({focused, color, size}: {focused: boolean; color: string; size: number}) =>
     <TabBarIcon route={route} focused={focused} color={color} size={size} />;
 
-const MainNavigator = () => {
+const AuthNav = () => {
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
@@ -30,4 +29,4 @@ const MainNavigator = () => {
   );
 };
 
-export default MainNavigator;
+export default AuthNav;
