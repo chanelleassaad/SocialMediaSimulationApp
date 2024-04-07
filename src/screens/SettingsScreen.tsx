@@ -1,12 +1,8 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import SettingLayout from '../components/template/SettingLayout';
 
 const SettingsScreen = () => {
-  return (
-    <View>
-      <Text>settings</Text>
-    </View>
-  );
+  return <SettingLayout />;
 };
 
 export default SettingsScreen;
