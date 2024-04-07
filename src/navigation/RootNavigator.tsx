@@ -1,9 +1,12 @@
-import React, {useState} from 'react';
+import React from 'react';
 import AuthNav from './AuthNav';
 import UnauthNav from './UnauthNav';
+import {useAuth} from '../store/authentication/AuthContext';
 
 const RootNavigator = () => {
-  const [isUserAuth, setIsAuth] = useState(false);
+  const {userToken} = useAuth();
+
+  const isUserAuth = !!userToken;
 
   return isUserAuth ? <AuthNav /> : <UnauthNav />;
 };
