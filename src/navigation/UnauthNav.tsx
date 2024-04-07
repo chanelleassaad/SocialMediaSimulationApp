@@ -8,7 +8,10 @@ const UnauthenticatedNavigator = createNativeStackNavigator();
 const UnauthNav = () => {
   return (
     <UnauthenticatedNavigator.Navigator
-      screenOptions={{headerTitle: 'CA Social Media App'}}>
+      screenOptions={{
+        headerTitle: 'CA Social Media App',
+        headerBackTitleVisible: false,
+      }}>
       <UnauthenticatedNavigator.Screen name="Login" component={LoginForm} />
       <UnauthenticatedNavigator.Screen name="Signup" component={SignupForm} />
     </UnauthenticatedNavigator.Navigator>

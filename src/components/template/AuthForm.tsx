@@ -7,7 +7,7 @@ import {
   SafeAreaView,
 } from 'react-native';
 
-const AuthForm = ({type, onSubmit, onNavigate}) => {
+const AuthForm = ({type, onSubmit, onNavigate, errorMessage}) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
@@ -27,6 +27,16 @@ const AuthForm = ({type, onSubmit, onNavigate}) => {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>{type === 'login' ? 'Login' : 'Sign Up'}</Text>
+      {type === 'signup' && (
+        <TextInput
+          style={styles.input}
+          placeholder="Email"
+          value={email}
+          onChangeText={setEmail}
+          autoCorrect={false}
+          autoCapitalize="none"
+        />
+      )}
       <TextInput
         style={styles.input}
         placeholder="Username"
@@ -44,21 +54,15 @@ const AuthForm = ({type, onSubmit, onNavigate}) => {
         autoCorrect={false}
         autoCapitalize="none"
       />
-      {type === 'signup' && (
-        <TextInput
-          style={styles.input}
-          placeholder="Email"
-          value={email}
-          onChangeText={setEmail}
-          autoCorrect={false}
-          autoCapitalize="none"
-        />
-      )}
+
       <Pressable style={styles.button} onPress={handleAction}>
         <Text style={styles.buttonText}>
           {type === 'login' ? 'LOGIN' : 'SIGN UP'}
         </Text>
       </Pressable>
+      {errorMessage ? (
+        <Text style={styles.errorText}>{errorMessage}</Text>
+      ) : null}
       <Text style={styles.footerText}>
         {type === 'login'
           ? "Don't Have an Account?"
@@ -72,6 +76,8 @@ const AuthForm = ({type, onSubmit, onNavigate}) => {
     </SafeAreaView>
   );
 };
+
+export default AuthForm;
 
 const styles = StyleSheet.create({
   container: {
@@ -119,6 +125,10 @@ const styles = StyleSheet.create({
     color: '#0096FF',
     fontSize: 13,
   },
+  errorText: {
+    color: 'red',
+    fontSize: 14,
+    marginTop: 10,
+    textAlign: 'center',
+  },
 });
-
-export default AuthForm;
