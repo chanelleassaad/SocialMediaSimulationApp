@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import SignOutButton from '../atoms/SignOutButton';
-import UserDetails from '../molecules/UserDetails';
+import UserDetails from '../organisms/UserDetails';
 
 const SettingLayout = () => {
   return (

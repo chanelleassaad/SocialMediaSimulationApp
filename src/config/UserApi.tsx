@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const baseUrl = 'https://66100a060640280f219c27d4.mockapi.io/api/sm';
-const api = axios.create({
+export const api = axios.create({
   baseURL: baseUrl,
 });
 

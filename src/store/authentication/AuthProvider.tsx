@@ -17,7 +17,7 @@ const AuthProvider = ({children}) => {
       try {
         const credentials = await Keychain.getGenericPassword();
         if (credentials) {
-          userToken = credentials.password;
+          userToken = JSON.parse(credentials.password);
         }
       } catch (e) {
         throw e;
@@ -29,9 +29,9 @@ const AuthProvider = ({children}) => {
 
   const authContext = useMemo(
     () => ({
-      signIn: async (name, id, email, isAdmin) => {
-        const token = JSON.stringify({name, id, email, isAdmin});
-        await Keychain.setGenericPassword('userToken', token);
+      signIn: async (username, id, email, isAdmin) => {
+        const token = JSON.stringify({username, id, email, isAdmin});
+        await Keychain.setGenericPassword('userToken', JSON.parse(token));
         dispatch({type: 'SIGN_IN', token});
       },
       signOut: async () => {

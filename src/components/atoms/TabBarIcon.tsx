@@ -23,6 +23,8 @@ const TabBarIcon = ({
     iconName = focused ? 'home' : 'home-outline';
   } else if (route.name === 'Profile') {
     iconName = focused ? 'person' : 'person-outline';
+  } else if (route.name === 'Post') {
+    iconName = focused ? 'add-circle' : 'add-circle-outline';
   }
 
   return <Ionicons name={iconName} size={size} color={color} />;
