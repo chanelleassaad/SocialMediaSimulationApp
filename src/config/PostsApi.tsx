@@ -48,7 +48,7 @@ export const createPost = async (
       username: username,
     };
     const response = await api.post<IPost>('/posts', post);
-    dispatch(addPost(response.data)); // Dispatch the correct payload
+    dispatch(addPost(response.data));
     return response.data;
   } catch (error) {
     throw error;

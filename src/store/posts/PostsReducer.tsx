@@ -11,7 +11,7 @@ const postsSlice = createSlice({
   initialState,
   reducers: {
     addPost: (state, action) => {
-      state.posts.unshift(action.payload);
+      state.posts.push(action.payload);
     },
     getPostsStart: state => {
       state.loading = true;

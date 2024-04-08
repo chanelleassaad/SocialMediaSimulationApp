@@ -30,8 +30,8 @@ const AuthProvider = ({children}) => {
   const authContext = useMemo(
     () => ({
       signIn: async (username, id, email, isAdmin) => {
-        const token = JSON.stringify({username, id, email, isAdmin});
-        await Keychain.setGenericPassword('userToken', JSON.parse(token));
+        const token = {username, id, email, isAdmin};
+        await Keychain.setGenericPassword('userToken', JSON.stringify(token));
         dispatch({type: 'SIGN_IN', token});
       },
       signOut: async () => {

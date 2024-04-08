@@ -7,7 +7,7 @@ const UserDetails = () => {
 
   return (
     <>
-      <Text style={styles.name}>{userToken.name}</Text>
+      <Text style={styles.name}>{userToken.username}</Text>
       <Text style={styles.email}>{userToken.email}</Text>
       {userToken.isAdmin ? (
         <Text style={styles.email}>You are an admin!</Text>

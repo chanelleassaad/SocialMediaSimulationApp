@@ -37,7 +37,13 @@ const AddPostScreen = () => {
 
   const handleAddPost = async () => {
     try {
-      await createPost(dispatch, image, caption, userToken.id, userToken.name);
+      await createPost(
+        dispatch,
+        image,
+        caption,
+        userToken.id,
+        userToken.username,
+      );
       Alert.alert('Post Added', 'Your post has been successfully added.');
       handleCancelImage();
     } catch (error) {
