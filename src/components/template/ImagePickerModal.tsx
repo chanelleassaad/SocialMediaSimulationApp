@@ -8,7 +8,6 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
 import {
   PhotoIdentifier,
   CameraRoll,
@@ -20,11 +19,11 @@ interface ImagePickerModalProps {
   onClose: () => void;
 }
 
-const ImagePickerModal: React.FC<ImagePickerModalProps> = ({
+const ImagePickerModal = ({
   visible,
   onSelectImage,
   onClose,
-}) => {
+}: ImagePickerModalProps) => {
   const [photos, setPhotos] = useState<PhotoIdentifier[]>([]);
 
   useEffect(() => {
@@ -73,6 +72,8 @@ const ImagePickerModal: React.FC<ImagePickerModalProps> = ({
   );
 };
 
+export default ImagePickerModal;
+
 const styles = StyleSheet.create({
   modalContainer: {
     paddingTop: 70,
@@ -88,5 +89,3 @@ const styles = StyleSheet.create({
     height: 100,
   },
 });
-
-export default ImagePickerModal;

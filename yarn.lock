@@ -1537,6 +1537,11 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@notifee/react-native@^7.8.2":
+  version "7.8.2"
+  resolved "https://registry.yarnpkg.com/@notifee/react-native/-/react-native-7.8.2.tgz#72d3199ae830b4128ddaef3c1c2f11604759c9c4"
+  integrity sha512-VG4IkWJIlOKqXwa3aExC3WFCVCGCC9BA55Ivg0SMRfEs+ruvYy/zlLANcrVGiPtgkUEryXDhA8SXx9+JcO8oLA==
+
 "@react-native-camera-roll/camera-roll@^7.5.2":
   version "7.5.2"
   resolved "https://registry.yarnpkg.com/@react-native-camera-roll/camera-roll/-/camera-roll-7.5.2.tgz#2b248a835fbb8b53d04fc0c2957adba1474d9c99"
@@ -5782,10 +5787,10 @@ react-native-flipper@^0.164.0:
   resolved "https://registry.yarnpkg.com/react-native-flipper/-/react-native-flipper-0.164.0.tgz#64f6269a86a13a72e30f53ba9f5281d2073a7697"
   integrity sha512-iJhIe3rqx6okuzBp4AJsTa2b8VRAOGzoLRFx/4HGbaGvu8AurZjz8TTQkhJsRma8dsHN2b6KKZPvGGW3wdWzvA==
 
-react-native-flipper@^0.212.0:
-  version "0.212.0"
-  resolved "https://registry.yarnpkg.com/react-native-flipper/-/react-native-flipper-0.212.0.tgz#b3fdd47676ecd09a25edd77a1466acace6276762"
-  integrity sha512-bDRfIgE3v/jjEEdnvGP0T6maDD+bXhDAQ/SZUYTKd/CQ6YIU1c0EF+e0urU62LNMv6XEFQKz226McdddyVhYZA==
+react-native-flipper@^0.211.0:
+  version "0.211.1"
+  resolved "https://registry.yarnpkg.com/react-native-flipper/-/react-native-flipper-0.211.1.tgz#c6bf94f86ad1101e3c51b07aa2c68d99fd19e027"
+  integrity sha512-G0AfySXdWLBk0pvyx88SMI3+g9E+JHELEqnxAORjAace4eSGDucJ0GsT85uXX4iUKK/B1BSHZ39FIzy79dPMkQ==
 
 react-native-gesture-handler@^2.16.0:
   version "2.16.0"
