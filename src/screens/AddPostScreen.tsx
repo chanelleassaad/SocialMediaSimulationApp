@@ -78,13 +78,18 @@ const AddPostScreen = () => {
   return (
     <View style={styles.container}>
       <Button title="Pick an image from camera roll" onPress={pickImage} />
-      <ImageInput image={image} handleCancelImage={handleCancelImage} />
-      <CaptionInput
-        caption={caption}
-        setCaption={setCaption}
-        handlePost={handleAddPost}
-        disabled={!image || !caption}
-      />
+      {image && (
+        <>
+          <ImageInput image={image} handleCancelImage={handleCancelImage} />
+          <CaptionInput
+            caption={caption}
+            setCaption={setCaption}
+            handlePost={handleAddPost}
+            disabled={!image || !caption}
+          />
+        </>
+      )}
+
       <ImagePickerModal
         visible={modalVisible}
         onSelectImage={handleSelectImage}

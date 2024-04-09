@@ -2,15 +2,15 @@ import React from 'react';
 import {View, Image, Button, StyleSheet} from 'react-native';
 
 interface ImagePickerProps {
-  image: string | null;
+  image: string;
   handleCancelImage: () => void;
 }
 
 const ImageInput = ({image, handleCancelImage}: ImagePickerProps) => {
   return (
     <View style={styles.imageContainer}>
-      {image && <Image source={{uri: image}} style={styles.image} />}
-      {image && <Button title="Cancel" onPress={handleCancelImage} />}
+      <Image source={{uri: image}} style={styles.image} />
+      <Button title="Cancel" onPress={handleCancelImage} />
     </View>
   );
 };
