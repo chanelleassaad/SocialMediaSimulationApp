@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 
 const PostItem = ({item}) => {
@@ -16,6 +16,8 @@ const PostItem = ({item}) => {
     </View>
   );
 };
+
+export default memo(PostItem);
 
 const styles = StyleSheet.create({
   post: {
@@ -46,5 +48,3 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
 });
-
-export default PostItem;

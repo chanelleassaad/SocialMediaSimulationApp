@@ -58,7 +58,7 @@
 			<dict>
 				<key>CFBundleURLSchemes</key>
 				<array>
-					<string>mychat</string>
+					<string>mysocialmediaapp</string>
 				</array>
 			</dict>
 		</array>
