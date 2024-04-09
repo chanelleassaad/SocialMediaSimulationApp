@@ -37,6 +37,7 @@ export default ProfileScreen;
 const styles = StyleSheet.create({
   container: {
     padding: 10,
+    marginBottom: 100,
   },
   noPostsContainer: {
     alignItems: 'center',

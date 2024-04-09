@@ -4,6 +4,7 @@ import {
   getPostsFailure,
   getPostsStart,
   getPostsSuccess,
+  deletePostFromStore,
 } from '../store/posts/PostsReducer';
 import {api} from './UserApi';
 
@@ -49,6 +50,18 @@ export const createPost = async (
     };
     const response = await api.post<IPost>('/posts', post);
     dispatch(addPost(response.data));
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+export const deletePost = async (
+  dispatch: Dispatch<any>,
+  postId: string,
+): Promise<IPost> => {
+  try {
+    const response = await api.delete<IPost>(`/posts/${postId}`);
+    dispatch(deletePostFromStore(response.data));
     return response.data;
   } catch (error) {
     throw error;
