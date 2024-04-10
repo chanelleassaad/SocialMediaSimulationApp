@@ -1,6 +1,5 @@
-import React, {useState} from 'react';
-import {View, StyleSheet, Platform, Button} from 'react-native';
-import {requestCameraPermission} from '../permissions/AndroidCameraRollPermission';
+import React, {useCallback, useState} from 'react';
+import {View, StyleSheet, Button} from 'react-native';
 import ImagePickerModal from '../components/template/ImagePickerModal';
 import CaptionInput from '../components/molecules/CaptionInput';
 import ImageInput from '../components/molecules/ImageInput';
@@ -8,6 +7,7 @@ import {useDispatch} from 'react-redux';
 import {createPost} from '../config/PostsApi';
 import {useAuth} from '../store/authentication/AuthContext';
 import notifee from '@notifee/react-native';
+import {requestImagePickerPermission} from '../permissions/Permissions';
 
 const AddPostScreen = () => {
   const [image, setImage] = useState<string | null>(null);
@@ -16,36 +16,25 @@ const AddPostScreen = () => {
   const {userToken} = useAuth();
   const dispatch = useDispatch();
 
-  const pickImage = async () => {
-    if (Platform.OS === 'android') {
-      const permissionGranted = await requestCameraPermission();
-      if (!permissionGranted) {
-        return;
-      }
+  const pickImage = useCallback(async () => {
+    const permissionGranted = await requestImagePickerPermission();
+    if (!permissionGranted) {
+      return;
     }
     setModalVisible(true);
-  };
+  }, []);
 
-  const handleSelectImage = (imageUri: string) => {
+  const handleSelectImage = useCallback((imageUri: string) => {
     setImage(imageUri);
     setModalVisible(false);
-  };
+  }, []);
 
-  const handleCancelImage = () => {
+  const handleCancelImage = useCallback(() => {
     setImage(null);
     setCaption('');
-  };
+  }, []);
 
   const handleAddPost = async () => {
-    // Request permissions (required for iOS)
-    await notifee.requestPermission();
-
-    // Create a channel (required for Android)
-    const channelId = await notifee.createChannel({
-      id: 'default',
-      name: 'Default Channel',
-    });
-
     try {
       await createPost(
         dispatch,
@@ -54,25 +43,30 @@ const AddPostScreen = () => {
         userToken.id,
         userToken.username,
       );
-
-      // Display a notification
-      await notifee.displayNotification({
-        title: 'Post Added',
-        body: 'Your post has been successfully added!',
-        android: {
-          channelId,
-          pressAction: {
-            id: 'default',
-          },
-        },
-      });
+      displayNotification(
+        'Post Added',
+        'Your post has been successfully added!',
+      );
       handleCancelImage();
     } catch (error) {
-      await notifee.displayNotification({
-        title: 'Error',
-        body: 'Failed to add your post. Please try again.',
-      });
+      displayNotification(
+        'Error',
+        'Failed to add your post. Please try again.',
+      );
     }
+  };
+
+  const displayNotification = async (title: string, body: string) => {
+    await notifee.requestPermission();
+    const channelId = await notifee.createChannel({
+      id: 'default',
+      name: 'Default Channel',
+    });
+    await notifee.displayNotification({
+      title,
+      body,
+      android: {channelId, pressAction: {id: 'default'}},
+    });
   };
 
   return (

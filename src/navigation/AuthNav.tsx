@@ -30,6 +30,7 @@ const AuthNav = () => {
         tabBarActiveTintColor: 'black',
         tabBarShowLabel: false,
         headerShown: false,
+        tabBarHideOnKeyboard: true,
       })}>
       <Tab.Screen name="Feed" component={FeedScreen} />
       <Tab.Screen name="Post" component={AddPostScreen} />

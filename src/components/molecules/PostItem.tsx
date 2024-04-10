@@ -1,4 +1,4 @@
-import React, {memo, useEffect, useState} from 'react';
+import React, {memo, useEffect, useMemo, useState} from 'react';
 import {
   View,
   Text,
@@ -10,7 +10,7 @@ import {
 import {useAuth} from '../../store/authentication/AuthContext';
 import {useDispatch} from 'react-redux';
 import {deletePost} from '../../config/PostsApi';
-import Icon from 'react-native-vector-icons/Ionicons'; // Import Ionicons from react-native-vector-icons
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const PostItem = ({item}) => {
   const {userToken} = useAuth();
@@ -23,21 +23,24 @@ const PostItem = ({item}) => {
     }
   }, [item, userToken]);
 
-  const handleDelete = async () => {
-    Alert.alert(
-      'Delete Post',
-      'Are you sure you want to delete this post?',
-      [
-        {text: 'Cancel', style: 'cancel'},
-        {
-          text: 'Delete',
-          onPress: async () => await deletePost(dispatch, item.id),
-          style: 'destructive',
-        },
-      ],
-      {cancelable: true},
-    );
-  };
+  const handleDelete = useMemo(
+    () => async () => {
+      Alert.alert(
+        'Delete Post',
+        'Are you sure you want to delete this post?',
+        [
+          {text: 'Cancel', style: 'cancel'},
+          {
+            text: 'Delete',
+            onPress: async () => await deletePost(dispatch, item.id),
+            style: 'destructive',
+          },
+        ],
+        {cancelable: true},
+      );
+    },
+    [dispatch, item.id],
+  );
 
   return (
     <View style={styles.post}>
